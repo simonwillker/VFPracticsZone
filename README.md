@@ -44,3 +44,30 @@ label属性を空の文字列に設定すると、デフォルトのオブジェ
 Visualforce フォームには入力項目をタブで移動する場合の「自然な順序」 (左から右および上から下) が用意されています。
 一部のフォームでは、この順序が必ずしも最も効率が良い配置方法、あるいはアクセスしやい配置方法ではない場合があります。
 ページの入力コンポーネントおよびその他のコンポーネントで tabIndex および tabOrderHint 属性を使用してこのタブ順序を任意の順序に変更できます。
+
+# VFDashboard.vfp
+●　この Visualforce ページを使用するダッシュボードを作成する手順は、次のとおりです。
+1. ダッシュボードを表示し、[編集] をクリックします。
+2. 任意の列の上部にある [コンポーネントの追加] をクリックします。
+3. コンポーネントの種類として [Visualforce ページ] を選択します。
+4. 必要に応じて、ダッシュボードコンポーネントの上部に表示するヘッダーを入力します。
+5. 必要に応じて、ダッシュボードコンポーネントの下部に表示するフッターを入力します。
+6. [Visualforce ページ] ドロップダウンリストから、VFDash を選択します。
+7. [保存] をクリックします。
+
+# カスタムオブジェクトの関連リストの表示
+●　Visualforce を使用してカスタムオブジェクトとその関連リストを表示するのはとても簡単です。
+●　MyChildObject、MyMasterObject、および MyLookupObject という 3 つのカスタムオブジェクトがあったとします。
+●　MyChildObject には MyMasterObject との主従関係があります (後者が主)。MyLookupObject にも MyChildObject との参照関係があります。
+（列１）
+<apex:page standardController="MyMasterObject__c">
+	<apex:relatedList list="MyChildObjects__r" />
+</apex:page>
+（列２）
+<apex:page  standardController="Account">
+    <apex:relatedList list="contacts" />
+</apex:page>
+
+# インライン編集の有効化
+インライン編集では、レ
+コードの詳細ページで直接、項目値をすばやく編集できます。編集可能なセルには、その上にマウスを置くと鉛筆アイコン（✎）が表示され、編集できないセルの場合は、錠アイコンが表示されます。
